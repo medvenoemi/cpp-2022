@@ -12,9 +12,12 @@ int countBits(int number);
 bool setBit(int& number, int order);
 double mean(double array[], int numElements);
 double stddev(double array[], int numElements);
+pair<double, double> max2(double array[], int numElements);
+double isNum(string text);
 int countWords(const string&text);
 string code(string text);
+string decode(string text);
 string capitalizeWords(string text);
-double isNum(string text);
+
 
 #endif //CPP_2022_FUNCTIONS_H

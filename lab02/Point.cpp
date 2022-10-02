@@ -27,3 +27,8 @@ int Point::getY() const {
 void Point::print() const {
     std::cout<<"("<<this->x<<","<<this->y<<")";
 }
+
+void Point::getData(int x,int y){
+    this->x=x;
+    this->y=y;
+}

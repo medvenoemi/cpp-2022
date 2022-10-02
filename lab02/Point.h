@@ -14,6 +14,7 @@ public:
     int getX() const;
     int getY() const;
     void print() const;
+    void getData(int x,int y);
 };
 
 

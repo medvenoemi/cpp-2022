@@ -48,49 +48,79 @@ int main() {
         }
 
         case 4:{
-            double array[10];
-            int numElements = 10;
+            int numElements ;
+            double array[numElements];
 
-            std::cout<<"Please enter the elements of the array: "<<std::endl;
-            for(int i=0; i<10; i++){
-                std::cin>>array[i];
+            cout<<"Please enter the number of elements: "<<endl;
+            cin>>numElements;
+            cout<<"Please enter the elements of the array: "<<endl;
+
+            for(int i=0; i<=numElements; i++){
+                cin>>array[i];
             }
 
-            std::cout<<"Standard devitation: "<<stddev(array, numElements);
+            cout<<"Standard devitation: "<<stddev(array, numElements);
 
             break;
         }
 
         case 5:{
 
+            int numElements ;
+            double array[numElements];
+
+            cout<<"Please enter the number of elements: "<<endl;
+            cin>>numElements;
+            cout<<"Please enter the elements of the array: "<<endl;
+
+            for(int i=0; i<numElements; i++){
+                cin>>array[i];
+            }
+
+            pair<double, double> maxes = max2(array, numElements);
+            cout<<maxes.first<<" "<<maxes.second;
 
 
             break;
         }
 
         case 6:{
+
+            istringstream iss("1 2 3 alma 4");
+            double number;
+            while(iss >> number){
+                cout<<number<<endl;
+            }
+
             break;
         }
 
         case 7:{
 
-            string text;
-            cout<<"Enter a text: "<<"\n";
-            getline(cin, text);
-            cout<<"\n";
+            string text = "osz tel tavasz nyar" ;
+            //cout<<"Enter a text: "<<"\n";
+            //getline(cin, text);
+            //cout<<"\n";
             cout<<countWords(text);
             break;
         }
 
         case 8:{
-            string text;
-            cout<<"Enter a text: "<<"\n";
-            getline(cin, text);
-            cout<<"\n";
-            cout<<capitalizeWords(text);
+            string text = "osz tel tavasz nyar" ;
+            cout<<"The coded text: "<<code(text)<<endl;
+            cout<<"The decoded text: " <<decode(code(text));
             break;
         }
 
+        case 9:{
+            string text = "osz tel tavasz nyar" ;
+            cout << capitalizeWords(text);
+            break;
+        }
+
+        default:{
+
+        }
     }
     return 0;
 }
