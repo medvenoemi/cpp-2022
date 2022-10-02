@@ -7,6 +7,8 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <vector>
+
 using namespace std;
 ifstream ifs("points.txt");
 
@@ -41,29 +43,33 @@ bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d){
     }
     return false;
 }
-/*
-void  testIsSquare(const char * filename){
 
-    int i=0;
-    int d[8]={0};
-    bool ok=true;
+void testIsSquare(const char *filename) {
 
-    int k=0;
-    while(!ifs.eof()){
-        ifs>>d[i]>>d[i+1];
-        i=i+2;
-        if(i==8){
-            cout<<k<<":";
-            k++;
-            ok=isSquare(Point(d[0],d[1]),Point(d[2],d[3]),Point(d[4],d[5]),Point(d[6],d[7]));
-            i=0;
-            cout<<ok<<endl;
-        }
-        ok=false;
+    ifstream fin("points.txt");
+
+    if (!fin) {
+        cout << "Error opening output file" << endl;
     }
-    cout<<endl;
+
+    int t[8];
+    bool square = true;
+
+    while (!fin.eof()) {
+        for(int i = 0; i < 8; i += 2)
+            fin >> t[i] >> t[i + 1];
+        square = isSquare(Point(t[0], t[1]), Point(t[2], t[3]), Point(t[4], t[5]), Point(t[6], t[7]));
+        if (square == 1)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+        square = false;
+    }
+
+    fin.close();
 }
-*/
+
+
 Point* createArray(int numPoints){
 
     Point *points = new Point[numPoints];
@@ -130,6 +136,7 @@ void sortPoints(Point* points, int numPoints){
         }
     }
 }
+
 
 void deletePoints(Point* points){
     delete [] points;

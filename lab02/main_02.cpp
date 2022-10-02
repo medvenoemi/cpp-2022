@@ -55,22 +55,9 @@ void test_f5(){
 }
 
 void test_function6() {
-    //    testIsSquare("points.txt");
-    ifstream fin("C:\\Users\\Noemi\\Desktop\\Fejlett prog tech\\cpp-labor\\lab02\\points.txt");
-    int x1,y1,x2,y2;
-
-
-    while(!fin.eof()){
-        fin>>x1;
-        fin>>y1;
-        fin>>x2;
-        fin>>y2;
-    }
-    cout<<x1<<endl;
-    cout<<y1<<endl;
-    cout<<x2<<endl;
-    cout<<y2<<endl;
+    testIsSquare("points.txt");
 }
+
 
 void testFunctions(){
     int number;
