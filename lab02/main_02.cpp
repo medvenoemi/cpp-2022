@@ -1,76 +1,83 @@
 #include <iostream>
+#include <fstream>
 #include "Point.h"
 #include "util.h"
-#include <fstream>
 using namespace std;
 
 ifstream ifs("points.txt");
 
+void test_f1();
 void test_distance();
-void test_print();
-void test_square(int t[]);
-void test_randomGen();
+bool comparePoints(const Point& p1, const Point&p2);
+void test_f5();
+void test_function6();
+void testFunctions();
 
 int main(int argc, char** argv) {
 
-    if(!ifs){
-        cout<<"FIle open error" <<endl;
-        return 1;
-    }
-    int x,y;
-    int i=0;
-    int t[8]={0};
 
-
-    test_distance();
-    test_print();
-    test_square(t);
-    test_randomGen();
+    //test_f1();
+    //test_distance();
+    //test_f5();
+    //void test_function6();
+    void testFunctions();
 
     return 0;
 }
 
 void test_distance(){
-    Point p1(0,0);
-    Point p2(3,4);
-    cout<<"Tavolsag: "<<distance(p1,p2)<<endl;
-
+    Point p1(0, 0);
+    Point p2(3, 4);
+    cout<<"dist(p1, p2): " << distance(p1, p2)<<endl;
 }
 
-void test_print(){
-    Point p1(1,0);
-    p1.print();
-    cout<<endl;
+void test_f1(){
+    Point p1(2,3);
+    cout<<"p1( "<<p1.getX()<<","<<p1.getY()<<")"<<endl;
+    Point p2(100, 200);
+    cout<<"p2( "<<p2.getX()<<","<<p2.getY()<<")"<<endl;
+    Point * pp1 = new Point(300, 400);
+    Point * pp2 = new Point(500, 1000);
+    cout<<"pp1( "<<pp1->getX()<<","<<pp1->getY()<<")"<<endl;
+    cout<<"pp2( "<<pp2->getX()<<","<<pp2->getY()<<")"<<endl;
+    delete pp1;
+    delete pp2;
 }
 
-void test_square(int t[]){
-    cout<<"isSquare"<<endl;
-    bool ok=true;
-    int i=0;
-    int k=0;
-    while(!ifs.eof()){
-        ifs>>t[i]>>t[i+1];
-        i=i+2;
-        if(i==8){
-            cout<<k<<":";
-            k++;
-            ok=isSquare(Point(t[0],t[1]),Point(t[2],t[3]),Point(t[4],t[5]),Point(t[6],t[7]));
-            i=0;
-            cout<<ok<<endl;
-        }
-        ok=false;
+bool comparePoints(const Point& p1, const Point& p2){
+    return p1.getX() < p2.getX();
+}
+
+void test_f5(){
+    Point p1 = { 20, 10 }, p2 = { 10, 20 },
+            p3 = { 20, 20 }, p4 = { 10, 10 };
+    isSquare(p1, p2, p3, p4) ? cout << "Yes" : cout << "No";
+}
+
+void test_function6() {
+    //    testIsSquare("points.txt");
+    ifstream fin("C:\\Users\\Noemi\\Desktop\\Fejlett prog tech\\cpp-labor\\lab02\\points.txt");
+    int x1,y1,x2,y2;
+
+
+    while(!fin.eof()){
+        fin>>x1;
+        fin>>y1;
+        fin>>x2;
+        fin>>y2;
     }
-    cout<<endl;
+    cout<<x1<<endl;
+    cout<<y1<<endl;
+    cout<<x2<<endl;
+    cout<<y2<<endl;
 }
 
-void test_randomGen(){
-    cout<<"Random Num Generator"<<endl;
-    int number=5;
-    cout<<"How many elments do you want in the array?"<<endl;
+void testFunctions(){
+    int number;
+    cout<<"Please give the number of elements: ";
     cin>>number;
-    Point * points = createArray(number);
-    printArray(points,number);
-    cout<<endl;
+    Point *points = createArray(number);
+    printArray(points, number);
 
     cout<<"closest points"<<endl;
     pair<Point , Point> closest = closestPoints(points,number);
@@ -81,14 +88,7 @@ void test_randomGen(){
     cout<<"Farthest points"<<endl;
     cout<<"("<<closest.first.getX()<<","<<closest.first.getY()<<"), ("<<closest.second.getX()<<", "<<closest.second.getY()<<")";
 
-    sortPoints(points,number);
-    cout<<endl;
-
+    sortPoints(points, number);
     cout<<"Sorted points"<<endl;
-    printArray(points,number);
-    cout<<endl;
-
-    //13
-    delete [] points;
-
+    printArray(points, number);
 }

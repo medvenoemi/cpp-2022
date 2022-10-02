@@ -8,7 +8,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-
+ifstream ifs("points.txt");
 
 double distance(const Point& a, const Point& b){
 
@@ -41,9 +41,9 @@ bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d){
     }
     return false;
 }
+/*
+void  testIsSquare(const char * filename){
 
-/*void  testIsSquare(const char * filename){
-    int x,y;
     int i=0;
     int d[8]={0};
     bool ok=true;
@@ -62,8 +62,8 @@ bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d){
         ok=false;
     }
     cout<<endl;
-}*/
-
+}
+*/
 Point* createArray(int numPoints){
 
     Point *points = new Point[numPoints];
