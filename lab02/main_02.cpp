@@ -19,8 +19,8 @@ int main(int argc, char** argv) {
     //test_f1();
     //test_distance();
     //test_f5();
-    //void test_function6();
-    void testFunctions();
+    //test_function6();
+     testFunctions();
 
     return 0;
 }
@@ -65,17 +65,21 @@ void testFunctions(){
     cin>>number;
     Point *points = createArray(number);
     printArray(points, number);
+    cout<<endl;
 
     cout<<"closest points"<<endl;
     pair<Point , Point> closest = closestPoints(points,number);
     cout<<"("<<closest.first.getX()<<","<<closest.first.getY()<<"), ("<<closest.second.getX()<<", "<<closest.second.getY()<<")";
+    cout<<endl;
     closest= farthestPoints(points,number);
     cout<<endl;
 
     cout<<"Farthest points"<<endl;
     cout<<"("<<closest.first.getX()<<","<<closest.first.getY()<<"), ("<<closest.second.getX()<<", "<<closest.second.getY()<<")";
 
+    cout<<endl;
     sortPoints(points, number);
+    cout<<endl;
     cout<<"Sorted points"<<endl;
     printArray(points, number);
 }

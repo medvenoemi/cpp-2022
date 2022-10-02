@@ -7,10 +7,9 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
-#include <vector>
 
 using namespace std;
-ifstream ifs("points.txt");
+
 
 double distance(const Point& a, const Point& b){
 
@@ -20,6 +19,7 @@ double distance(const Point& a, const Point& b){
 
 
 bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d){
+
     double  s2, s3, s4;
 
     s2 = distance(a, b);
@@ -30,15 +30,15 @@ bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d){
         return false;
     }
 
-    if(s2 == s3 && 2*s2 == s4 && 2* distance(c, d) == distance(b, c)){
+    if(s2 == s3 && sqrt(2)*s2 == s4 &&  sqrt(2)*distance(c, d) == distance(b, c)){
         return true;
     }
 
-    if(s3 == s4 && 2*s3 == s2 && 2* distance(c, b) == distance(c, d)){
+    if(s3 == s4 && sqrt(2)*s3 == s2 && sqrt(2)*distance(c, b) == distance(c, d)){
         return true;
     }
 
-    if(s2 == s4 && 2*s2 == s3 && 2* distance(b, c) == distance(b, d)){
+    if(s2 == s4 && sqrt(2)*s2 == s3 && sqrt(2)*distance(b, c) == distance(b, d)){
         return true;
     }
     return false;
