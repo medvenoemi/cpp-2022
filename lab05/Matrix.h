@@ -17,7 +17,7 @@ public:
 // Copy constructor
     Matrix(const Matrix& what);
 // Move constructor
-//    Matrix( Matrix&& what );
+   Matrix( Matrix&& what );
 // Destructor
     ~Matrix();
 //fills the matrix with identical elements
@@ -31,6 +31,29 @@ public:
     int getRows() const { return this->mRows;}
     int getCols() const { return this->mCols;}
 
+// operation is permitted on matrices having the same dimensions
+// otherwise throws an out_of_range exception!!
+    friend Matrix operator+(const Matrix& x, const Matrix& y);
+// operation is permitted on matrices having proper dimensions
+// otherwise throws an out_of_range exception!!
+    friend Matrix operator*(const Matrix& x, const Matrix& y);
+
+    // extractor operator
+    friend istream & operator>>(istream& is, Matrix& mat);
+// inserter operator
+    friend ostream & operator<<(ostream& os, const Matrix& mat);
+
+// index operator
+    double* operator[] (int index);
+// index operator that works on constant matrices!
+    double* operator[] (int index) const;
+
+    // Copy assignment
+// operation is permitted between matrices having the same dimensions
+// otherwise throws an exception (out_of_range)
+    Matrix & operator=(const Matrix& mat);
+// Move assignment
+    Matrix & operator=(Matrix&& mat);
 
 private:
 //Data
