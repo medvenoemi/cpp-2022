@@ -6,6 +6,8 @@
 #include <math.h>
 #include <iostream>
 
+int Point::counter{0};
+
 Point::Point(int x, int y) {
     if((x>=0 && x<=M) && (y>=0 && y<=M)){
         this->x = x;
@@ -15,6 +17,7 @@ Point::Point(int x, int y) {
         this->x = 0;
         this->y = 0;
     }
+    counter++;
 }
 int Point::getX() const {
     return x;
@@ -29,4 +32,7 @@ double Point::distanceTo(const Point &point) const {
 
 void Point::print() const {
     std::cout << "( "<<getX()<<","<<getY()<<" )"<<std::endl;
+}
+ int Point::getCounter() {
+    return counter;
 }
