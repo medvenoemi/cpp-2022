@@ -7,18 +7,17 @@
 
 #include "Szemely.h"
 
+
 class Alkalmazott : public Szemely{
 protected:
     string munkakor;
     int id;
+    static int counter;
 
 public:
-    Alkalmazott(string vezetekNev, string keresztNev, int szuletesiEv, string munkakor, int id);
+    Alkalmazott(string vezetekNev, string keresztNev, int szuletesiEv, string munkakor);
     virtual void print(ostream& os) const;
-    int getId();
-
-
-    static int getGetId();
+    int getId() const;
 };
 
 #endif //CPP_2022_ALKALMAZOTT_H
