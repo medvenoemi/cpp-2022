@@ -9,7 +9,10 @@
 #include "Manager.h"
 
 class Ceg {
+    vector<Alkalmazott *> alkalmazottak;
+
 public:
+    Ceg(const vector<Alkalmazott *> &alkalmazottak);
     void addAlklamazott(Alkalmazott *alkalmazott);
     void deleteAlkalmazottById(int id);
     void addAlkalmazottToManager(Manager *manager, Alkalmazott *alkalmazott);

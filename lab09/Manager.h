@@ -15,9 +15,10 @@ protected:
 public:
     Manager(string vezetekNev, string keresztNev, int szuletesiEv, string munkakor);
     void addAlkalmazott(Alkalmazott *alkalmazott);
-    void deleteAlkalmazott(int id);
+    void deleteAlkalmazott(Alkalmazott *alkalmazott);
+    void deleteAlkalmazottById(int id);
     int beosztottakSzama();
-    virtual void print(ostream &os) const;
+    virtual void print(ostream &os);
 
     static const string MANAGER_MUNKAKOR;
 };
