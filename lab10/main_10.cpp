@@ -67,4 +67,8 @@ int main(){
     person.fname = "Szanto";
     result = pl.find(person);
     cout << "Does " << person << " exist? " << (result ? "YES" : "NO") << endl;
+
+
+
+    return 0;
 }

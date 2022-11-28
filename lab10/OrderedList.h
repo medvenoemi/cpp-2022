@@ -135,7 +135,6 @@ void OrderedList<T, LessComp, Equal>::insert(const T &what) {
 template<class T, class LessComp, class Equal>
 OrderedList<T, LessComp, Equal>::~OrderedList() {
     numElements = 0;
-    Node *act;
     while ( first != nullptr ){
         Node *temp = first;
         first = first->next;
@@ -171,13 +170,13 @@ void OrderedList<T, LessComp, Equal>::remove(const T &what) {
 
 template<class T, class LessComp, class Equal>
 bool OrderedList<T, LessComp, Equal>::find(const T &what) {
-    Node *act;
+    Node *act = this->first;
 
     while ( act != nullptr ) {
-        if ( act->value ==what){
+        if ( Equal()(act->value, what)){
             return true;
-            act = act->next;
         }
+        act  = act->next;
     }
 
     return false;
