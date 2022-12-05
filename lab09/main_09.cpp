@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Szemely.h"
 #include "Alkalmazott.h"
+#include "Ceg.h"
 
 using namespace std;
 
@@ -14,5 +15,7 @@ int main() {
 
     Alkalmazott alkalmazott2("Fulop", "Istvan", 2002, "elado");
     alkalmazott2.print(cout);
+
+
     return 0;
 }
