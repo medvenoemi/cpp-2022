@@ -4,7 +4,7 @@
 
 #include "Ceg.h"
 
-void Ceg::addAlklamazott(Alkalmazott *alkalmazott) {
+void Ceg::addAlkalamazott(Alkalmazott *alkalmazott) {
     alkalmazottak.push_back(alkalmazott);
 }
 
@@ -16,7 +16,7 @@ void Ceg::deleteAlkalmazottById(int id) {
     this->alkalmazottak.erase(index);
 }
 
-void Ceg::addAlkalmazottToManager(Manager *manager, Alkalmazott *alkalmazott) {
+void Ceg::addAlkalmazottToManager( Alkalmazott *alkalmazott, Manager *manager) {
     for_each(alkalmazottak.begin(), alkalmazottak.end(), [alkalmazott, manager](Alkalmazott *alkalmazott1) {
         if (alkalmazott1 == manager) {
             manager->addAlkalmazott(alkalmazott);
@@ -24,7 +24,7 @@ void Ceg::addAlkalmazottToManager(Manager *manager, Alkalmazott *alkalmazott) {
     });
 }
 
-void Ceg::deleteAlkalmazottFromManager(Manager *manager, Alkalmazott *alkalmazott) {
+void Ceg::deleteAlkalmazottFromManager( Alkalmazott *alkalmazott, Manager *manager) {
     for_each(alkalmazottak.begin(), alkalmazottak.end(), [alkalmazott, manager](Alkalmazott *alkalmazott1) {
         if (alkalmazott1 == manager) {
             manager->deleteAlkalmazott(alkalmazott);

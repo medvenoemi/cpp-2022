@@ -12,10 +12,10 @@ class Ceg {
     vector<Alkalmazott *> alkalmazottak;
 
 public:
-    void addAlklamazott(Alkalmazott *alkalmazott);
+    void addAlkalamazott(Alkalmazott *alkalmazott);
     void deleteAlkalmazottById(int id);
-    void addAlkalmazottToManager(Manager *manager, Alkalmazott *alkalmazott);
-    void deleteAlkalmazottFromManager(Manager *manager, Alkalmazott *alkalmazott);
+    void addAlkalmazottToManager( Alkalmazott *alkalmazott, Manager *manager);
+    void deleteAlkalmazottFromManager( Alkalmazott *alkalmazott,Manager *manager);
     void printAll(ostream &os);
     void printManagers(ostream &os);
 };
