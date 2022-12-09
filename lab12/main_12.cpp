@@ -3,15 +3,16 @@
 #include "GraduationDaoImpl.h"
 #include "GraduationService.h"
 #include "GraduationServiceImpl.h"
+#include "SettlementStatisticsIpml.h"
 #include "SettlementStatistics.h"
-#include "SettlementStatisticsImpl.h"
+#include "Settlement.h"
 
 
-//string subjects[]{"maths", "romanian", "hungarian"};
-//int numSubjects = sizeof(subjects) / sizeof(subjects[0]);
-//
-//int main() {
-//    // ADMIN
+string subjects[]{"maths", "romanian", "hungarian"};
+int numSubjects = sizeof(subjects) / sizeof(subjects[0]);
+
+int main() {
+    // ADMIN
 //    GraduationDao *dao = new GraduationDaoImpl();
 //    dao->enrollStudents("names.txt");
 //    cout << "Number of enrolled students: " << dao->numEnrolled() << endl;
@@ -21,14 +22,14 @@
 //    }
 //    dao->computeAverage();
 //
-////    cout << "Subject's averages: " << endl;
-////    try {
-////        for (int i = 0; i < numSubjects; ++i) {
-////            cout << "\taverage(" << subjects[i] << "): " << dao->getAverageBySubject(subjects[i]) << endl;
-////        }
-////    }catch( domain_error& e){
-////        cerr << e.what() << endl;
-////    }
+//    cout << "Subject's averages: " << endl;
+//    try {
+//        for (int i = 0; i < numSubjects; ++i) {
+//            cout << "\taverage(" << subjects[i] << "): " << dao->getAverageBySubject(subjects[i]) << endl;
+//        }
+//    }catch( domain_error& e){
+//        cerr << e.what() << endl;
+//    }
 //
 //    cout << "Individual results: " << endl;
 //    int id = 0;
@@ -51,11 +52,9 @@
 //    }
 //    delete service;
 //    delete dao;
-//    return 0;
-//}
 
-int main(){
-    SettlementStatistics* stat = new SettlementStatisticsImpl("telepules.csv");
+
+    SettlementStatistics* stat = new SettlementStatisticsImpl("telepulesek.csv");
     cout << "Num settlements: " << stat->numSettlements() << endl;
     cout << "Num counties: " << stat->numCounties() << endl;
     cout << "Num settlements in MS: " << stat->numSettlementsByCounty("MS") << endl;
@@ -64,11 +63,19 @@ int main(){
     for(auto & r : result) {
         cout << r << endl;
     }
-    cout << endl << "Settlements with the name Madaras: " << endl;
-    vector<Settlement> result2 = stat->findSettlementsByName("Madaras");
+    cout << endl << "Settlements with the name Filpisu Mic: " << endl;
+    vector<Settlement> result2 = stat->findSettlementsByName("Filpisu Mic");
     for(auto & r : result2) {
         cout << r << endl;
     }
 
+    cout<< "Settlement by name and county : " << stat->findSettlementsByNameAndCounty("Brancovenesti" , "MS")<<endl;
+    cout << "Max density : " << stat->maxPopulationDensity() << endl;
+    cout << "Min density : " << stat->minPopulationDensity() << endl;
+
+
     delete stat;
+
+    return 0;
 }
+
